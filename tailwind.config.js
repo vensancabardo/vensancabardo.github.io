@@ -3,6 +3,9 @@ module.exports = {
     class: [
         ".src/**/*.{ts,tsx}"
     ],
+    content: [
+      ".src/**/*.{ts,tsx}"
+    ],
     theme: {
       extend: {
         colors: {

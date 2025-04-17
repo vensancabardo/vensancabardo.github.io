@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
+const isGhPages = process.env.DEPLOY_TARGET === 'gh-pages';
 const isProd = process.env.NODE_ENV === 'production';
+const repo = 'vensancabardo.github.io';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -9,8 +11,8 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Disable default image optimization
   },
   devIndicators: false,
-  assetPrefix: isProd ? '/vensancabardo.github.io/' : '',
-  basePath: isProd ? '/vensancabardo.github.io' : '',
+  basePath: isGhPages && isProd ? `/${repo}` : '',
+  assetPrefix: isGhPages && isProd ? `/${repo}/` : '',
   output: 'export'
 };
 
