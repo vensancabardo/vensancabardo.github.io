@@ -69,7 +69,7 @@ export function Chat({
   return (
     <div
       ref={targetDivRef}
-      className="self-center p-5 sm:p-14 rounded-lg size-full text-sm overflow-auto"
+      className="self-center p-5 pt-15 sm:p-14 rounded-lg size-full text-sm overflow-auto"
     >
       <div className="flex flex-col gap-4">
         <div className="flex flex-row gap-3">

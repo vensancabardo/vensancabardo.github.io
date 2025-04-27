@@ -123,22 +123,33 @@ const Skills = forwardRef<HTMLDivElement>((props, ref) => {
   ];
 
   const gridStyling =
-    "grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 pb-3";
+    "grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 pb-3";
 
   return (
     <div id="skills" ref={ref} className="h-screen w-screen snap-center">
       <Chat title={title} chatContent={words}>
-        <div className="pb-2">Languages</div>
-        <GlowingCardGrid cards={languages} gridStyling={gridStyling} />
+        {/* For mobile screens */}
+        <div className="block sm:hidden">
+          <GlowingCardGrid
+            cards={[...languages, ...frameworks, ...tools, ...otherSkills]}
+            gridStyling={gridStyling}
+          />
+        </div>
 
-        <div className="pb-2">Frameworks and Libraries</div>
-        <GlowingCardGrid cards={frameworks} gridStyling={gridStyling} />
+        {/* For larger screens */}
+        <div className="hidden sm:block">
+          <div className="pb-2">Languages</div>
+          <GlowingCardGrid cards={languages} gridStyling={gridStyling} />
 
-        <div className="pb-2">Tools</div>
-        <GlowingCardGrid cards={tools} gridStyling={gridStyling} />
+          <div className="pb-2">Frameworks and Libraries</div>
+          <GlowingCardGrid cards={frameworks} gridStyling={gridStyling} />
 
-        <div className="pb-2">Other Skills</div>
-        <GlowingCardGrid cards={otherSkills} gridStyling={gridStyling} />
+          <div className="pb-2">Tools</div>
+          <GlowingCardGrid cards={tools} gridStyling={gridStyling} />
+
+          <div className="pb-2">Other Skills</div>
+          <GlowingCardGrid cards={otherSkills} gridStyling={gridStyling} />
+        </div>
       </Chat>
     </div>
   );

@@ -65,12 +65,12 @@ export default function MainPageLayout({
         <FloatingDock
           items={items}
           desktopClassName="absolute bottom-0 m-auto left-1/2 -translate-x-1/2 z-40"
-          mobileClassName="absolute bottom-0 right-0 p-4 pb-16 z-40"
+          mobileClassName="absolute bottom-0 right-0 pr-2 m-4 mb-16 z-40"
         />
         <Button
           size="icon"
           variant="secondary"
-          className="absolute top-0 left-0 rounded-full m-4 mb-16 z-40"
+          className="absolute top-0 right-0 rounded-full m-4 mb-18 z-40"
           onClick={toggleTheme}
         >
           {theme === "dark" ? <Moon /> : <Sun />}
