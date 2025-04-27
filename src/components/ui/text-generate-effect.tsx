@@ -1,6 +1,7 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
+import Markdown from "react-markdown";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -8,14 +9,21 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 0.5,
-}: {
+  isVisible,
+}: // onComplete,
+{
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  isVisible: boolean;
+  // onComplete: () => void;
 }) => {
   const [scope, animate] = useAnimate();
+  const [numAnimationsCompleted, setNumAnimationsCompleted] = useState(0);
+
   let wordsArray = words.split(" ");
+
   useEffect(() => {
     animate(
       "span",
@@ -30,6 +38,20 @@ export const TextGenerateEffect = ({
     );
   }, [scope.current]);
 
+  const handleFinishWordAnimation = () => {
+    if (isVisible) {
+      console.log("yo");
+      setNumAnimationsCompleted((prevCount) => prevCount + 1);
+    }
+  };
+
+  useEffect(() => {
+    console.log(numAnimationsCompleted);
+    if (numAnimationsCompleted === wordsArray.length) {
+      // onComplete();
+    }
+  }, [numAnimationsCompleted]);
+
   const renderWords = () => {
     return (
       <motion.div ref={scope}>
@@ -41,6 +63,9 @@ export const TextGenerateEffect = ({
               style={{
                 filter: filter ? "blur(10px)" : "none",
               }}
+              // initial="init"
+              // animate="loaded"
+              // onAnimationComplete={handleFinishWordAnimation}
             >
               {word}{" "}
             </motion.span>
@@ -51,10 +76,8 @@ export const TextGenerateEffect = ({
   };
 
   return (
-    <div className="mt-4">
-      <div className=" dark:text-white text-black leading-snug tracking-wide text-sm">
-        {renderWords()}
-      </div>
+    <div className=" dark:text-white text-black leading-snug tracking-wide text-sm">
+      {renderWords()}
     </div>
   );
 };

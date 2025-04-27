@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type BackgroundTypes = "laptop" | "phone" | "arcade" | "default";
+export type BackgroundTypes = "laptop" | "phone" | "arcade" | "default";
 
 type BackgroundContextType = {
   type: BackgroundTypes;

@@ -2,6 +2,7 @@
 
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { useSiteContext } from "@/contexts/site-context";
+import { BackgroundTypes } from "@/contexts/use-background";
 import { Maximize2, Minus, X } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -74,13 +75,13 @@ function PhoneBackground({ children }: { children: React.ReactNode }) {
 
 function ArcadeBackground() {}
 
-export default function PortfolioBackground({
+function PortfolioBackground({
   children,
+  type,
 }: {
   children: React.ReactNode;
+  type: BackgroundTypes;
 }) {
-  const { type } = useSiteContext();
-
   switch (type) {
     case "laptop":
       return <LaptopBackground>{children}</LaptopBackground>;
@@ -97,4 +98,14 @@ export default function PortfolioBackground({
       return <div>{children}</div>;
     }
   }
+}
+
+export default function Portfolio({ children }: { children: React.ReactNode }) {
+  const { type, setType } = useSiteContext();
+
+  return (
+    <div className="size-full">
+      <PortfolioBackground type={"laptop"}>{children}</PortfolioBackground>
+    </div>
+  );
 }
