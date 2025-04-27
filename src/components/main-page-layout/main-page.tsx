@@ -61,7 +61,7 @@ export default function MainPageLayout({
 
   return (
     <div className={theme}>
-      <div className="relative bg-background text-foreground max-h-screen max-w-screen overflow-auto">
+      <div className="relative bg-background text-foreground max-h-screen max-w-screen overflow-hidden">
         <FloatingDock
           items={items}
           desktopClassName="absolute bottom-0 m-auto left-1/2 -translate-x-1/2 z-40"
@@ -75,7 +75,7 @@ export default function MainPageLayout({
         >
           {theme === "dark" ? <Moon /> : <Sun />}
         </Button>
-        <div className="h-screen w-screen overflow-x-hidden overflow-y-auto snap-y snap-mandatory">
+        <div className="h-screen w-screen overflow-x-hidden overflow-y-scroll snap-y snap-mandatory">
           {children}
         </div>
       </div>
