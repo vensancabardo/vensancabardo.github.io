@@ -61,16 +61,16 @@ export default function MainPageLayout({
 
   return (
     <div className={theme}>
-      <div className="relative bg-background text-foreground max-h-screen max-w-screen overflow-hidden">
+      <div className="relative bg-background text-foreground max-h-dvh max-w-screen overflow-hidden">
         <FloatingDock
           items={items}
           desktopClassName="absolute bottom-0 m-auto left-1/2 -translate-x-1/2 z-40"
-          mobileClassName="absolute bottom-0 right-0 pr-2 m-4 mb-16 z-40"
+          mobileClassName="absolute bottom-0 right-0 pr-2 m-4 z-40"
         />
         <Button
           size="icon"
           variant="secondary"
-          className="absolute top-0 right-0 rounded-full m-4 mb-18 z-40"
+          className="absolute top-0 right-0 rounded-full m-4 z-40"
           onClick={toggleTheme}
         >
           {theme === "dark" ? <Moon /> : <Sun />}

@@ -126,7 +126,7 @@ const Skills = forwardRef<HTMLDivElement>((props, ref) => {
     "grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 pb-3";
 
   return (
-    <div id="skills" ref={ref} className="h-screen w-screen snap-center">
+    <div id="skills" ref={ref} className="h-dvh w-screen snap-center">
       <Chat title={title} chatContent={words}>
         {/* For mobile screens */}
         <div className="block sm:hidden">

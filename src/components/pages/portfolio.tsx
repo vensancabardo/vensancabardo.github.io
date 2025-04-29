@@ -47,7 +47,7 @@ const Portfolio = forwardRef<HTMLDivElement>((props, ref) => {
   const gridStyling = "grid grid-cols-1 gap-2 md:grid-cols-2";
 
   return (
-    <div id="portfolio" ref={ref} className="h-screen w-screen snap-center">
+    <div id="portfolio" ref={ref} className="h-dvh w-screen snap-center">
       <Chat title={title} chatContent={words}>
         <GlowingCardGrid cards={projects} gridStyling={gridStyling} />
       </Chat>

@@ -22,7 +22,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
   const title = "💻 About Me";
 
   return (
-    <div id="about" ref={ref} className="h-screen w-screen snap-center">
+    <div id="about" ref={ref} className="h-dvh w-screen snap-center">
       <Chat chatContent={words} title={title}>
         <div className="text-sm py-3">My links:</div>
         <div className="flex flex-wrap gap-2">

@@ -78,7 +78,7 @@ const Experience = forwardRef<HTMLDivElement>((props, ref) => {
   const gridStyling = "grid grid-cols-1 gap-2 md:grid-cols-2";
 
   return (
-    <div id="experience" ref={ref} className="h-screen w-screen snap-center">
+    <div id="experience" ref={ref} className="h-dvh w-screen snap-center">
       <Chat title={title} chatContent={words}>
         <GlowingCardGrid cards={experience} gridStyling={gridStyling} />
       </Chat>
